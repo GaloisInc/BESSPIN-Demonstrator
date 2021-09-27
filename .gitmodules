@@ -1,0 +1,3 @@
+[submodule "BESSPIN-Tool-Suite"]
+	path = BESSPIN-Tool-Suite
+	url = https://github.com/GaloisInc/BESSPIN-Tool-Suite.git
