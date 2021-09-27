@@ -13,7 +13,27 @@ Unlimited)
 
 Cyberphysical demonstrator of BESSPIN technology
 
-[![DARPA SSITH Automotive Demonstrator](assets/demonstator_with_people.jpg)](https://www.youtube.com/watch?v=ZgHQkOWEy1Q)
+[![DARPA SSITH Automotive Demonstrator](assets/demonstrator_with_people.jpg)](https://www.youtube.com/watch?v=ZgHQkOWEy1Q)
+
+- [BESSPIN-Demonstrator](#besspin-demonstrator)
+  - [Controls and Operation](#controls-and-operation)
+    - [Reset button](#reset-button)
+    - [Emergency stop](#emergency-stop)
+    - [Functionality levels](#functionality-levels)
+  - [Exhibit setup](#exhibit-setup)
+  - [Power up](#power-up)
+  - [Troubleshooting](#troubleshooting)
+    - [System health monitoring](#system-health-monitoring)
+    - [LEDs are off](#leds-are-off)
+    - [Steering wheel doesn't respond](#steering-wheel-doesn't-respond)
+    - [No sound](#no-sound)
+    - [Infotainment doesn't work / No music](#infotainment-doesn't-work-no-music)
+    - [Cannot shift into Park](#cannot-shift-into-park)
+    - [Component failure](#component-failure)
+  - [Known issues](#known-issues)
+    - [Beamng reset](#beamng-reset)
+    - [Steering wheel not centered after a restart](#steering-wheel-not-centered-after-a-restart)
+    - [LEDs get stuck](#leds-get-stuck)
 
 ## Controls and Operation
 
@@ -30,7 +50,7 @@ Emergency stop button will cut power to the force feedback system. It is located
 ### Functionality levels
 The demonstrator has 3 functionality levels, and switches between them automatically to preserve as much functionality as possible in the presence of component errors.
 
-1. Minimimal functionality
+1. Minimal functionality
     - boot time: 2-3 min
     - simulator can be driven, but no hacks are possible
     - no SSITH technology is used
@@ -42,7 +62,7 @@ The demonstrator has 3 functionality levels, and switches between them automatic
 3. Full functionality
     - boot time: 15-20 min
     - all hacks and features are enabled
-    - uses SSITH technology to protect the infotainment (HARDENS from LM), and the ECU / crirical systems (CHERI from SRI-Cambridge)
+    - uses SSITH technology to protect the infotainment (HARDENS from LM), and the ECU / critical systems (CHERI from SRI-Cambridge)
     - all 6 FPGAs running
 
 ## Exhibit setup
@@ -67,7 +87,7 @@ There are two latches hidden in the front grill that open the hood.
 
 ## Power up
 
-1. Plug the main power plug into the receptacle. A standard 15A circuit is sufficient. The actual peak power draw of the demonstrator is closer to 10A. If nothing happens after power up, make sure that the main switch (located below the hood as decribed above) is turned ON.
+1. Plug the main power plug into the receptacle. A standard 15A circuit is sufficient. The actual peak power draw of the demonstrator is closer to 10A. If nothing happens after power up, make sure that the main switch (located below the hood as described above) is turned ON.
 2. Power up the UPS device below the rear of the car - this device must be on to powers the LED strips
     ![led_power_button](assets/led_power_button.jpg)
 3. Power up the steering wheel by pressing the small power button next to the emergency switch in the glove compartment. This should be done once Windows has booted, but before the simulator has started.
@@ -80,18 +100,18 @@ There are two latches hidden in the front grill that open the hood.
     3) In the new window, go to the `Settings` tab
     4) Click on `Wheel Center Calibration`
     5) Click on `Yes`
-    6) The steering wheel is now centered - bring the BeamNG simualtor into foreground, and press `Alt+Enter` to go back to full screen
+    6) The steering wheel is now centered - bring the BeamNG simulator into foreground, and press `Alt+Enter` to go back to full screen
     7) Disconnect the keyboard and the mouse
     ![centering_the_steering_wheel](assets/steering_wheel_centering.jpeg)
 6. The LED lights will power cycle and change color a couple of times, until they start pulsing green.
 7. The booted system looks like this:
-    1. Green pulsing LEDs, simular running in self-driving mode
+    1. Green pulsing LEDs, similar running in self-driving mode
     ![nominal_front](assets/car_ready_nominal.jpg)
     2. Both hacker kiosk and CAN display running
     ![nominal_rear](assets/car_rear_nominal.jpg)
     3. CAN display shows no errors, and displays a live feed of CAN messages passed on the CAN bus
     ![nominal_can_display](assets/can_display_all_normal.jpg)
-    4. Intial screen of the hacker kiosk looks like this:
+    4. Initial screen of the hacker kiosk looks like this:
     ![nominal_hacker_kiosk](assets/hacker_kiosk_nominal.jpg)
 
 
@@ -150,17 +170,15 @@ Usually the best course of action is to [power cycle](#power-up) the whole demon
 
 ## Known issues
 
-Because the demonstator uses experimental components, there are some known issues that might pop up.
+Because the demonstrator uses experimental components, there are some known issues that might pop up.
 
 ![emergency_stop_button_in_detail](assets/emergency_switch_detail.jpg)
 
 ### Beamng reset
-[PyBeamng](https://beamngpy.readthedocs.io/en/latest/index.html) and [BeamNg](https://beamng.tech/) occassionally loses connection to the rest of the demonstator. Usually we can reconnect within a couple of seconds, but during that time the driver might lose control of the vehicle. In the worst case, an Ignition error is displayed on the CAN display and in such case the demonstrator (or more specifically the Ignition component) has to be restarted.
+[PyBeamng](https://beamngpy.readthedocs.io/en/latest/index.html) and [BeamNg](https://beamng.tech/) occasionally loses connection to the rest of the demonstrator. Usually we can reconnect within a couple of seconds, but during that time the driver might lose control of the vehicle. In the worst case, an Ignition error is displayed on the CAN display and in such case the demonstrator (or more specifically the Ignition component) has to be restarted.
 
 ### Steering wheel not centered after a restart
 The [Fanatec podium wheel base](https://fanatec.com/us-en/racing-wheels-wheel-bases/wheel-bases/podium-wheel-base-dd1) does not keep its center calibration, and as a result is not perfectly aligned after a restart. This seem to be a Fanatec driver issue. To re-calibrate the steering wheel, please follow the [calibration procedure](calibrate-steering-wheel)
 
 ### LEDs get stuck
 Sometimes a segment of the LEDs get stuck in a given color/pattern. The only known remedy is to power cycle the demonstrator (more specifically restart the ignition subsystem, which manages the LEDs).
-
-
