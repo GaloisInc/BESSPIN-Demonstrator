@@ -11,8 +11,6 @@ Distribution Statement "A" (Approved for Public Release, Distribution
 Unlimited)
 ```
 
-Cyberphysical demonstrator of BESSPIN technology
-
 [![DARPA SSITH Automotive Demonstrator](assets/demonstrator_with_people.jpg)](https://www.youtube.com/watch?v=ZgHQkOWEy1Q)
 
 - [BESSPIN-Demonstrator](#besspin-demonstrator)
@@ -34,6 +32,11 @@ Cyberphysical demonstrator of BESSPIN technology
     - [Beamng reset](#beamng-reset)
     - [Steering wheel not centered after a restart](#steering-wheel-not-centered-after-a-restart)
     - [LEDs get stuck](#leds-get-stuck)
+
+## Introduction
+
+* [Full DARPA SSITH demonstrator video](https://www.youtube.com/watch?v=nFmaRKwB03U)
+* [Short (industry version) DARPA SSITH demonstrator video](https://www.youtube.com/watch?v=ZgHQkOWEy1Q)
 
 ## Controls and Operation
 
