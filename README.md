@@ -68,10 +68,10 @@ at least a partially guided experience is recommended - to answer visitors' ques
 
 The demonstrator repository is structured as follows:
 
-* [BESSPIN-Tool-Suite/besspin/cyberPhys/canlib](BESSPIN-Tool-Suite/besspin/cyberPhys/canlib): CAN message specification and CAN library implementation used in the demonstrator
-* [BESSPIN-Tool-Suite/besspin/cyberPhys/ui](BESSPIN-Tool-Suite/besspin/cyberPhys/ui): UI assets (CAN Display, Infotainment, Hacker-Kiosk)
-* [BESSPIN-Tool-Suite/besspin/cyberPhys/scripts](BESSPIN-Tool-Suite/besspin/cyberPhys/scripts): various support scripts
-* [BESSPIN-Tool-Suite/besspin/cyberPhys/](BESSPIN-Tool-Suite/besspin/cyberPhys/): demonstrator SW
+* [BESSPIN-Tool-Suite/besspin/cyberPhys/canlib](https://github.com/GaloisInc/BESSPIN-Tool-Suite/tree/master/besspin/cyberPhys/canlib): CAN message specification and CAN library implementation used in the demonstrator
+* [BESSPIN-Tool-Suite/besspin/cyberPhys/ui](https://github.com/GaloisInc/BESSPIN-Tool-Suite/tree/master/besspin/cyberPhys/ui): UI assets (CAN Display, Infotainment, Hacker-Kiosk)
+* [BESSPIN-Tool-Suite/besspin/cyberPhys/scripts](https://github.com/GaloisInc/BESSPIN-Tool-Suite/tree/master/besspin/cyberPhys/scripts): various support scripts
+* [BESSPIN-Tool-Suite/besspin/cyberPhys/](https://github.com/GaloisInc/BESSPIN-Tool-Suite/tree/master/besspin/cyberPhys): demonstrator SW
 * [arduino](arduino): Arduino sketches for the instrument cluster and the Teensy board
 * [assets](assets): images and other assets used in this README
 * [hardware](hardware): hardware related documentation and assets, released under [Open Hardware License](hardware/LICENSE)
@@ -315,4 +315,10 @@ Sometimes a segment of the LEDs get stuck in a given color/pattern. The only kno
 
 
 ## Spare parts
-TODO
+
+The most important parts are:
+
+* Xilinx VCU 118 FPGA
+* Intel NUC
+* Raspberry Pi
+* for more details please consult the [Architecture diagram](https://github.com/GaloisInc/BESSPIN-Demonstrator/blob/main/hardware/Physical%20Architecture%20Diagram/CYBERPHYS_DEMONSTRATOR_ARCHITECTURE_PHYSICAL_REV_D.pdf)
