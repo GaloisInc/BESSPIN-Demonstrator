@@ -11,15 +11,20 @@ Distribution Statement "A" (Approved for Public Release, Distribution
 Unlimited)
 ```
 
+
 [![DARPA SSITH Automotive Demonstrator](assets/demonstrator_with_people.jpg)](https://www.youtube.com/watch?v=ZgHQkOWEy1Q)
 
 - [BESSPIN-Demonstrator](#besspin-demonstrator)
   - [Introduction](#introduction)
-  - [Controls and Operation](#controls-and-operation)
+    - [Abbreviations](#abbreviations)
+    - [Repository structure](#repository-structure)
+  - [Operation](#operation)
+    - [Demonstrator modes](#demonstrator-modes)
     - [Scenarios](#scenarios)
+    - [Functionality levels](#functionality-levels)
     - [Reset button](#reset-button)
     - [Emergency stop](#emergency-stop)
-    - [Functionality levels](#functionality-levels)
+  - [Experience](#experience)
   - [Exhibit setup](#exhibit-setup)
   - [Power up](#power-up)
   - [Troubleshooting](#troubleshooting)
@@ -34,12 +39,43 @@ Unlimited)
     - [Beamng reset](#beamng-reset)
     - [Steering wheel not centered after a restart](#steering-wheel-not-centered-after-a-restart)
     - [LEDs get stuck](#leds-get-stuck)
+  - [Spare parts](#spare-parts)
+
 
 
 ## Introduction
 
+The BESSPIN CyberPhysical Demonstrator was developed under the [DARPA SSITH Program](https://www.darpa.mil/program/ssith).
+The demonstrator is intended to showcase the use of the SSITH secure hardware technology in a passenger vehicle.
+Visitors will experience driving a vehicle as it is being hacked, 
+and the process of hacking a unprotected and a SSITH protected car. The demonstrator is intended for a wide audience without
+deep technical knowledge, and can generally work without much supervision (see the list of [known issues](#known-issues)), although
+at least a partially guided experience is recommended - to answer visitors' questions and give them more information about the program.
+
 * [Full DARPA SSITH demonstrator video](https://www.youtube.com/watch?v=nFmaRKwB03U)
 * [Short (industry version) DARPA SSITH demonstrator video](https://www.youtube.com/watch?v=ZgHQkOWEy1Q)
+
+### Abbreviations
+
+* CAN: Controller Area Network
+* ECU: Engine Control Unit
+* FPGA: Field Programmable Gate Array
+* OTA Update: Over The Air Update
+* SSITH: System Security Integration Through Hardware and Firmware 
+* UPS: Uninterruptible Power Supply
+
+### Repository structure
+
+The demonstrator repository is structured as follows:
+
+* [BESSPIN-Tool-Suite/besspin/cyberPhys/canlib](BESSPIN-Tool-Suite/besspin/cyberPhys/canlib): CAN message specification and CAN library implementation used in the demonstrator
+* [BESSPIN-Tool-Suite/besspin/cyberPhys/ui](BESSPIN-Tool-Suite/besspin/cyberPhys/ui): UI assets (CAN Display, Infotainment, Hacker-Kiosk)
+* [BESSPIN-Tool-Suite/besspin/cyberPhys/scripts](BESSPIN-Tool-Suite/besspin/cyberPhys/scripts): various support scripts
+* [BESSPIN-Tool-Suite/besspin/cyberPhys/](BESSPIN-Tool-Suite/besspin/cyberPhys/): demonstrator SW
+* [arduino](arduino): Arduino sketches for the instrument cluster and the Teensy board
+* [assets](assets): images and other assets used in this README
+* [hardware](hardware): hardware related documentation and assets, released under [Open Hardware License](hardware/LICENSE)
+* [specs](specs): high level specifications (LANDO description, state machine diagrams, etc.)
 
 ## Operation
 
@@ -57,7 +93,7 @@ During operation, the demonstrator is in one of the following three modes:
 <a name="hacked-mode"></a>
 
 2. **Hacked**
-    - extension of Nominal mode
+    - extension of unprotected mode
     - the car is being hacked
     - *Red* color
     - ![hacked mode](assets/hacked_mode.jpg)
@@ -85,7 +121,7 @@ There are two SSITH protected scenarios:
 
 2. **Protected critical systems**
     - The critical systems (ECU) is protected with SSITH technology (CHERI from SRI-Cambridge)
-    - The infotainment is *not* protected, and as a result, the hacker can gain access to the system and launch an attack on the critical systems
+    - The Infotainment is *not* protected, and as a result, the hacker can gain access to the system and launch an attack on the critical systems
 
 
 ![ssith demonstrator](assets/ssith.jpg)
@@ -105,7 +141,7 @@ The demonstrator has three functionality levels and switches between them automa
 3. **Full functionality**
     - boot time: 15-20 min
     - all hacks and features are enabled
-    - uses SSITH technology to protect the infotainment (HARD from LM), and the ECU / critical systems (CHERI from SRI-Cambridge)
+    - uses SSITH technology to protect the Infotainment (HARD from Lockheed Martin), and the ECU / critical systems (CHERI from SRI-Cambridge)
     - all 6 FPGAs running
 
 <a name="reset-button"></a>
@@ -122,7 +158,7 @@ The emergency stop button will cut power to the force feedback system, and is lo
 
 The demonstrator is designed for two people - a *driver* and a *hacker*. *Driver*'s role is to drive the car to the airport. The exact route doesn't matter, as the car is on an island, and all roads eventually end up at the airport. Simply exploring the area is just fine as well.
 
-*Hacker*'s role is to exploit a vulnerability in the car's Over-The-Air (OTA) update server, gain access to the Infotainment system, and hack both the infotainment and critical systems (brakes, steering, throttle, transmission)
+*Hacker*'s role is to exploit a vulnerability in the car's OTA Update server, gain access to the Infotainment system, and hack both the Infotainment and critical systems (brakes, steering, throttle, transmission)
 
 ![start of the scenario](assets/start_of_the_scenario.jpg)
 
@@ -138,7 +174,7 @@ The experience of being hacked while driving on a highway is jarring and often r
 
 ![driver_hacked](assets/driver_hacked.jpg)
 
-After going through the hacking screens, the demonstrator switches into [SSITH protected mode](#ssith-mode), and hacks are no longer successful. The hacker can choose from two scenarios - [protected infotainment](#protected-infotainment) and [protected critical systems](#protected-critical-systems).
+After going through the hacking screens, the demonstrator switches into [SSITH protected mode](#ssith-mode), and hacks are no longer successful. The hacker can choose from two scenarios - [protected Infotainment](#protected-infotainment) and [protected critical systems](#protected-critical-systems).
 
 ![ssith mode enabled](assets/ssith_mode_enabled.jpg)
 
@@ -244,11 +280,11 @@ If the wheel still doesn't come up, open the hood and check if the light on the 
 Sounds levels can be adjusted on the Windows PC - attach a keyboard and a mouse to the USB hub in the glove compartment, press `Alt+Tab` to escape the simulator, and adjust the sound volume accordingly.
 
 ### Infotainment doesn't work / No music
-First, check the CAN display for any errors. The infotainment/music works only in [Full Functionality](#functionality-levels) mode.
+First, check the CAN display for any errors. The Infotainment/music works only in [Full Functionality](#functionality-levels) mode.
 
 If no errors are displayed, make sure you are in manual mode (can drive the car) and press volume/music station button.
 
-The last resort is to check the [System health monitoring](#system-health-monitoring) to see if there are any errors in the infotainment backend.
+The last resort is to check the [System health monitoring](#system-health-monitoring) to see if there are any errors in the Infotainment backend.
 
 ### Cannot shift into Park
 The ignition key might be in the OFF position. Rotate the key and move the shifter to find the correct key orientation.
@@ -276,3 +312,7 @@ The [Fanatec podium wheel base](https://fanatec.com/us-en/racing-wheels-wheel-ba
 
 ### LEDs get stuck
 Sometimes a segment of the LEDs get stuck in a given color/pattern. The only known remedy is to power cycle the demonstrator (more specifically restart the ignition subsystem, which manages the LEDs).
+
+
+## Spare parts
+TODO
