@@ -14,7 +14,9 @@ Unlimited)
 [![DARPA SSITH Automotive Demonstrator](assets/demonstrator_with_people.jpg)](https://www.youtube.com/watch?v=ZgHQkOWEy1Q)
 
 - [BESSPIN-Demonstrator](#besspin-demonstrator)
+  - [Introduction](#introduction)
   - [Controls and Operation](#controls-and-operation)
+    - [Scenarios](#scenarios)
     - [Reset button](#reset-button)
     - [Emergency stop](#emergency-stop)
     - [Functionality levels](#functionality-levels)
@@ -33,40 +35,116 @@ Unlimited)
     - [Steering wheel not centered after a restart](#steering-wheel-not-centered-after-a-restart)
     - [LEDs get stuck](#leds-get-stuck)
 
+
 ## Introduction
 
 * [Full DARPA SSITH demonstrator video](https://www.youtube.com/watch?v=nFmaRKwB03U)
 * [Short (industry version) DARPA SSITH demonstrator video](https://www.youtube.com/watch?v=ZgHQkOWEy1Q)
 
-## Controls and Operation
+## Operation
 
-TODO: elaborate on the experience
+### Demonstrator modes
+
+During operation, the demonstrator is in one of the following three modes:
+
+1. **Unprotected**
+    - No SSITH protection
+    - *Green* color
+    - ![unprotected mode](assets/nominal_mode.jpg)
+    <a name="unprotected-mode"></a>
+2. **Hacked**
+    - extension of Nominal mode
+    - the car is being hacked
+    - *Red* color
+    - ![hacked mode](assets/hacked_mode.jpg)
+    <a name="hacked-mode"></a>
+3. **SSITH protected**
+    - uses SSITH technology for protection from hacking
+    - hacks are no longer successful
+    - *Blue* color
+    - ![SSITH mode](assets/ssith_mode.jpg)
+    <a name="ssith-mode"></a>
+
+### Scenarios
+
+There are two SSITH protected scenarios:
+1. **Protected Infotainment**
+    - The Infotainment is protected with SSITH technology (HARD from Lockheed Martin)
+    - As a result, the hacker cannot gain hold in the system
+    <a name="protected-infotainment"></a>
+2. **Protected critical systems**
+    - The critical systems (ECU) is protected with SSITH technology (CHERI from SRI-Cambridge)
+    - The infotainment is *not* protected, and as a result the hacker can gain access to the system and launch attack on the critical systems
+    <a name="protected-critical-systems"></a>
+
+![ssith demonstrator](assets/ssith.jpg)
+
+### Functionality levels
+The demonstrator has 3 functionality levels, and switches between them automatically to preserve as much functionality as possible in the presence of component errors.
+
+1. **Minimal functionality**
+    - boot time: 2-3 min
+    - simulator can be driven, but no hacks are possible
+    - no SSITH technology is used
+2. **Medium functionality**
+    - boot time: ~5 min
+    - only critical systems hacks can be executed
+    - SSITH technology used to protect the ECU / critical systems (CHERI from SRI-Cambridge)
+    - 3 FPGAs running
+3. **Full functionality**
+    - boot time: 15-20 min
+    - all hacks and features are enabled
+    - uses SSITH technology to protect the infotainment (HARD from LM), and the ECU / critical systems (CHERI from SRI-Cambridge)
+    - all 6 FPGAs running
 
 ### Reset button
 Reset button will reset the scenario back to the beginning.
-![reset_button](assets/reset_button.jpeg)
+![reset_button](assets/reset_button.jpeg)<a name="reset-button"></a>
 
 ### Emergency stop
 Emergency stop button will cut power to the force feedback system. It is located in the glove compartment.
 ![emergency_stop](assets/emergency_switch.jpg)
 
-### Functionality levels
-The demonstrator has 3 functionality levels, and switches between them automatically to preserve as much functionality as possible in the presence of component errors.
+## Experience
 
-1. Minimal functionality
-    - boot time: 2-3 min
-    - simulator can be driven, but no hacks are possible
-    - no SSITH technology is used
-2. Medium functionality
-    - boot time: ~5 min
-    - only critical systems hacks can be executed
-    - SSITH technology used to protect the ECU / critical systems (CHERI from SRI-Cambridge)
-    - 3 FPGAs running
-3. Full functionality
-    - boot time: 15-20 min
-    - all hacks and features are enabled
-    - uses SSITH technology to protect the infotainment (HARDENS from LM), and the ECU / critical systems (CHERI from SRI-Cambridge)
-    - all 6 FPGAs running
+The demonstrator is designed for two people - a *driver* and a *hacker*. *Driver*'s role is to drive the car to the airport. The exact route doesn't really matter, as the car is on an island, and all roads eventually end up at the airport. Simply exploring the area is just fine as well.
+
+*Hacker*'s role is to exploit a vulnerability in car's Over-The-Air (OTA) update server, gain access to the Infotainment system and hack both the infotainment and critical systems (brakes, steering, throttle, transmission)
+
+![start of the scenario](assets/start_of_the_scenario.jpg)
+
+The driver starts in [unprotected mode](#unprotected-mode), and the hacker is instructed on the hacker kiosk screen about the SSITH technology, and steps to hack the car.
+
+![unprotected_mode_start](assets/unprotected_mode_start.jpg)
+
+The kiosk explains the process of the hacking, and its results.
+
+![unprotected_mode_start_close_up](assets/unprotected_mode_close_up.jpg)
+
+The experience of being hacked while driving on a highway is jarring, and often results in the driver crashing. There is a [reset button](#reset-button) that gives the driver a "new" car and starts from the beginning.
+
+![driver_hacked](assets/driver_hacked.jpg)
+
+After going through the hacking screens the demonstrator switches into [SSITH protected mode](#ssith-mode), and hacks are no longer successful. The hacker can choose from two scenarios - [protected infotainment](#protected-infotainment) and [protected critical systems](#protected-critical-systems).
+
+![ssith mode enabled](assets/ssith_mode_enabled.jpg)
+
+The hacker is educated about the benefits of the SSITH technology, and shown a more detailed explanation how the different SSITH protections work.
+
+![ssith_protection_enabled](assets/ssith_protection_enabled.jpg)
+
+The hacker is shown a hacking screen identical to the one used in the unprotected mode, but this time all the hacks fail.
+
+![ssith_protection_enabled_critical_systems](assets/ssith_protection_enabled_critical_systems.jpg)
+
+Thanks to the SSITH protection, the driver enjoys the driving and is able to reach the airport (the drive to the airport takes around 5 minutes).
+
+![driver_completes_mission](assets/driver_completes_mission.jpg)
+
+At the end of the scenario, the benefits of the SSITH technology are summarized once again, and the scenario is restarted.
+
+![everything_is_hackable](assets/everything_is_hackable.jpg)
+
 
 ## Exhibit setup
 
@@ -181,7 +259,7 @@ Because the demonstrator uses experimental components, there are some known issu
 [PyBeamng](https://beamngpy.readthedocs.io/en/latest/index.html) and [BeamNg](https://beamng.tech/) occasionally loses connection to the rest of the demonstrator. Usually we can reconnect within a couple of seconds, but during that time the driver might lose control of the vehicle. In the worst case, an Ignition error is displayed on the CAN display and in such case the demonstrator (or more specifically the Ignition component) has to be restarted.
 
 ### Steering wheel not centered after a restart
-The [Fanatec podium wheel base](https://fanatec.com/us-en/racing-wheels-wheel-bases/wheel-bases/podium-wheel-base-dd1) does not keep its center calibration, and as a result is not perfectly aligned after a restart. This seem to be a Fanatec driver issue. To re-calibrate the steering wheel, please follow the [calibration procedure](calibrate-steering-wheel)
+The [Fanatec podium wheel base](https://fanatec.com/us-en/racing-wheels-wheel-bases/wheel-bases/podium-wheel-base-dd1) does not keep its center calibration, and as a result is not perfectly aligned after a restart. This seem to be a Fanatec driver issue. To re-calibrate the steering wheel, please follow the [calibration procedure](#calibrate-steering-wheel)
 
 ### LEDs get stuck
 Sometimes a segment of the LEDs get stuck in a given color/pattern. The only known remedy is to power cycle the demonstrator (more specifically restart the ignition subsystem, which manages the LEDs).
