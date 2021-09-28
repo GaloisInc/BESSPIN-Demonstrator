@@ -47,35 +47,46 @@ Unlimited)
 
 During operation, the demonstrator is in one of the following three modes:
 
+<a name="unprotected-mode"></a>
+
 1. **Unprotected**
     - No SSITH protection
     - *Green* color
     - ![unprotected mode](assets/nominal_mode.jpg)
-    <a name="unprotected-mode"></a>
+
+<a name="hacked-mode"></a>
+
 2. **Hacked**
     - extension of Nominal mode
     - the car is being hacked
     - *Red* color
     - ![hacked mode](assets/hacked_mode.jpg)
-    <a name="hacked-mode"></a>
+
+<a name="ssith-mode"></a>
+
 3. **SSITH protected**
     - uses SSITH technology for protection from hacking
     - hacks are no longer successful
     - *Blue* color
     - ![SSITH mode](assets/ssith_mode.jpg)
-    <a name="ssith-mode"></a>
+
 
 ### Scenarios
 
 There are two SSITH protected scenarios:
+
+<a name="protected-infotainment"></a>
+
 1. **Protected Infotainment**
     - The Infotainment is protected with SSITH technology (HARD from Lockheed Martin)
     - As a result, the hacker cannot gain hold in the system
-    <a name="protected-infotainment"></a>
+
+<a name="protected-critical-systems"></a>
+
 2. **Protected critical systems**
     - The critical systems (ECU) is protected with SSITH technology (CHERI from SRI-Cambridge)
     - The infotainment is *not* protected, and as a result the hacker can gain access to the system and launch attack on the critical systems
-    <a name="protected-critical-systems"></a>
+
 
 ![ssith demonstrator](assets/ssith.jpg)
 
@@ -97,9 +108,11 @@ The demonstrator has 3 functionality levels, and switches between them automatic
     - uses SSITH technology to protect the infotainment (HARD from LM), and the ECU / critical systems (CHERI from SRI-Cambridge)
     - all 6 FPGAs running
 
+<a name="reset-button"></a>
+
 ### Reset button
 Reset button will reset the scenario back to the beginning.
-![reset_button](assets/reset_button.jpeg)<a name="reset-button"></a>
+![reset_button](assets/reset_button.jpeg)
 
 ### Emergency stop
 Emergency stop button will cut power to the force feedback system. It is located in the glove compartment.
