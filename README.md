@@ -85,13 +85,13 @@ There are two SSITH protected scenarios:
 
 2. **Protected critical systems**
     - The critical systems (ECU) is protected with SSITH technology (CHERI from SRI-Cambridge)
-    - The infotainment is *not* protected, and as a result the hacker can gain access to the system and launch attack on the critical systems
+    - The infotainment is *not* protected, and as a result, the hacker can gain access to the system and launch an attack on the critical systems
 
 
 ![ssith demonstrator](assets/ssith.jpg)
 
 ### Functionality levels
-The demonstrator has 3 functionality levels, and switches between them automatically to preserve as much functionality as possible in the presence of component errors.
+The demonstrator has three functionality levels and switches between them automatically to preserve as much functionality as possible in the presence of component errors.
 
 1. **Minimal functionality**
     - boot time: 2-3 min
@@ -111,38 +111,38 @@ The demonstrator has 3 functionality levels, and switches between them automatic
 <a name="reset-button"></a>
 
 ### Reset button
-Reset button will reset the scenario back to the beginning.
+The reset button will reset the scenario back to the beginning.
 ![reset_button](assets/reset_button.jpeg)
 
 ### Emergency stop
-Emergency stop button will cut power to the force feedback system. It is located in the glove compartment.
+The emergency stop button will cut power to the force feedback system, and is located in the glove compartment.
 ![emergency_stop](assets/emergency_switch.jpg)
 
 ## Experience
 
-The demonstrator is designed for two people - a *driver* and a *hacker*. *Driver*'s role is to drive the car to the airport. The exact route doesn't really matter, as the car is on an island, and all roads eventually end up at the airport. Simply exploring the area is just fine as well.
+The demonstrator is designed for two people - a *driver* and a *hacker*. *Driver*'s role is to drive the car to the airport. The exact route doesn't matter, as the car is on an island, and all roads eventually end up at the airport. Simply exploring the area is just fine as well.
 
-*Hacker*'s role is to exploit a vulnerability in car's Over-The-Air (OTA) update server, gain access to the Infotainment system and hack both the infotainment and critical systems (brakes, steering, throttle, transmission)
+*Hacker*'s role is to exploit a vulnerability in the car's Over-The-Air (OTA) update server, gain access to the Infotainment system, and hack both the infotainment and critical systems (brakes, steering, throttle, transmission)
 
 ![start of the scenario](assets/start_of_the_scenario.jpg)
 
-The driver starts in [unprotected mode](#unprotected-mode), and the hacker is instructed on the hacker kiosk screen about the SSITH technology, and steps to hack the car.
+The driver starts in [unprotected mode](#unprotected-mode), and the hacker is instructed on the hacker kiosk screen about the SSITH technology and steps to hack the car.
 
 ![unprotected_mode_start](assets/unprotected_mode_start.jpg)
 
-The kiosk explains the process of the hacking, and its results.
+The kiosk explains the process of the hacking and its results.
 
 ![unprotected_mode_start_close_up](assets/unprotected_mode_close_up.jpg)
 
-The experience of being hacked while driving on a highway is jarring, and often results in the driver crashing. There is a [reset button](#reset-button) that gives the driver a "new" car and starts from the beginning.
+The experience of being hacked while driving on a highway is jarring and often results in the driver crashing. There is a [reset button](#reset-button) that gives the driver a "new" car and starts from the beginning.
 
 ![driver_hacked](assets/driver_hacked.jpg)
 
-After going through the hacking screens the demonstrator switches into [SSITH protected mode](#ssith-mode), and hacks are no longer successful. The hacker can choose from two scenarios - [protected infotainment](#protected-infotainment) and [protected critical systems](#protected-critical-systems).
+After going through the hacking screens, the demonstrator switches into [SSITH protected mode](#ssith-mode), and hacks are no longer successful. The hacker can choose from two scenarios - [protected infotainment](#protected-infotainment) and [protected critical systems](#protected-critical-systems).
 
 ![ssith mode enabled](assets/ssith_mode_enabled.jpg)
 
-The hacker is educated about the benefits of the SSITH technology, and shown a more detailed explanation how the different SSITH protections work.
+The hacker is educated about the benefits of SSITH technology and is shown a more detailed explanation of how the different SSITH protections work.
 
 ![ssith_protection_enabled](assets/ssith_protection_enabled.jpg)
 
@@ -150,7 +150,7 @@ The hacker is shown a hacking screen identical to the one used in the unprotecte
 
 ![ssith_protection_enabled_critical_systems](assets/ssith_protection_enabled_critical_systems.jpg)
 
-Thanks to the SSITH protection, the driver enjoys the driving and is able to reach the airport (the drive to the airport takes around 5 minutes).
+Thanks to SSITH protection, the driver enjoys the driving and can reach the airport (the drive to the airport takes around 5 minutes).
 
 ![driver_completes_mission](assets/driver_completes_mission.jpg)
 
