@@ -322,3 +322,7 @@ The most important parts are:
 * Intel NUC
 * Raspberry Pi
 * for more details please consult the [Architecture diagram](https://github.com/GaloisInc/BESSPIN-Demonstrator/blob/main/hardware/Physical%20Architecture%20Diagram/CYBERPHYS_DEMONSTRATOR_ARCHITECTURE_PHYSICAL_REV_D.pdf)
+
+## National Cryptologic Museum
+
+As of September 2022 the Demonstrator is located in the National Cryptologic Museum. The Demonstrator had to be set up to work *without* the FPGAs, as two of the Xilinx VCU 118 FPGA's became faulty, and it was no longer possible to correctly boot them. While it is possible to replace them (or perhaps replace them with different type of FPGAs), the interim solution that preserves the user experience is to bypass the FPGAs entirely, and simulate both the hacks and the SSITH protection. Future work might clean up the changes, as well as make switching between non-FPGA and regular modes possible.
